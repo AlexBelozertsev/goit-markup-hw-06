@@ -5,12 +5,14 @@
 /* выделенный цвет текста - #2196F3 */
 /* цвет текста в адресе и инпуте - rgba(255, 255, 255, 0.6) */
 /* цвет иконок соцсетей команды - #AFB1B8 */
+/* цвет плейсхолдера модального окна - rgba(117, 117, 117, 0.5) */
 
 /* цвет фона героя и текста карточки "Чем мы занимаемся" - rgba(47, 48, 58, 0.8) */
 /* цвет фона секции "Наша команда" - #F5F4FA */
 /* цвет фона футера - #2F303A */
 /* цвет фона иконок соцсетей футера - rgba(255, 255, 255, 0.1) */
 /* цвет ховера карточки портфолио - rgba(33, 150, 243, 0.9) */
+/* цвет фона модального окна - rgba(0, 0, 0, 0.2) */
 
 /* цвет тени кнопки - 0px 4px 4px rgba(0, 0, 0, 0.15) */
 /* цвет тени ховерной карточки - 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12) */
@@ -18,6 +20,7 @@
 /* цвет бордера хедера - #ececec */
 /* цвет бордера - #AFB1B8 */
 /* цвет бордера в инпуте - rgba(255, 255, 255, 0.3) */
+/* цвет бордера в инпуте модального окна - rgba(33, 33, 33, 0.2) */
 
 /* шрифт логотипа - Raleway, bold */
 /* шрифт навигации и заголовка карточки - Roboto, 500 */
@@ -34,9 +37,11 @@
   --fourth-text-color: rgba(255, 255, 255, 0.6);
   --accent-text-color: #2196f3;
   --icon-color: #afb1b8;
+  --placeholder-color: rgba(117, 117, 117, 0.5);
 
   --first-background-color: rgba(47, 48, 58, 0.8);
   --second-background-color: #f5f4fa;
+  --modale-background-color: rgba(0, 0, 0, 0.2);
   --footer-background-color: #2f303a;
   --footer-background-item-color: rgba(255, 255, 255, 0.1);
   --hover-card-color: rgba(33, 150, 243, 0.9);
@@ -52,6 +57,8 @@
   --border-header-color: #ececec;
   --border-color: #afb1b8;
   --border-input-color: rgba(255, 255, 255, 0.3);
+  --border-modal-color: rgba(33, 33, 33, 0.2);
+  --border-div-close: rgba(0, 0, 0, 0.1);
 
   --time-tranforming: 250ms;
   --form-transforming: cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,7 +99,6 @@ a {
   padding: 0 15px;
 }
 .button {
-  display: inline-flex;
   align-items: center;
 
   color: var(--third-color);
@@ -227,6 +233,129 @@ main {
   text-transform: uppercase;
 
   margin-bottom: 30px;
+}
+
+/* modale window */
+.backdrop {
+  position: fixed;
+  top: -80px;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--modale-background-color);
+
+  opacity: 1;
+  transition: opacity var(--time-tranforming) var(--form-transforming);
+
+  z-index: 2;
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 580px;
+  background-color: var(--third-color);
+  padding: 40px;
+}
+.form-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.form-elements {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.form-elements:not(:last-child) {
+  margin-bottom: 10px;
+}
+.form-elements label {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+  margin-bottom: 4px;
+}
+.form-elements input {
+  height: 40px;
+  padding: 11px 42px;
+  border: 1px solid var(--border-modal-color);
+  border-radius: 4px;
+  transition: border-color var(--time-tranforming) var(--form-transforming);
+}
+.form-elements textarea {
+  resize: none;
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-modal-color);
+  border-radius: 4px;
+
+  transition: border-color var(--time-tranforming) var(--form-transforming);
+}
+.form-elements textarea::placeholder {
+  font-size: 12px;
+  color: var(--placeholder-color);
+}
+.form-elements input:focus,
+.form-elements input:hover,
+.form-elements textarea:focus,
+.form-elements textarea:hover {
+  border-color: var(--accent-text-color);
+  outline-color: var(--accent-text-color);
+}
+.icon-form-elements {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+
+  transition: fill var(--time-tranforming) var(--form-transforming);
+}
+.form-elements input:hover ~ .icon-form-elements {
+  fill: var(--accent-text-color);
+}
+.modal ul {
+  margin-bottom: 20px;
+}
+.checkbox {
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.71;
+}
+.checkbox a {
+  color: var(--accent-text-color);
+  text-decoration-line: underline;
+}
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border-div-close);
+  border-radius: 50%;
+
+  transition: fill var(--time-tranforming) var(--form-transforming);
+}
+.close:focus,
+.close:hover {
+  fill: var(--accent-text-color);
 }
 
 /*our feature*/
@@ -499,21 +628,20 @@ main {
   width: calc(50% - 15px);
 }
 #email {
-  box-sizing: border-box;
-  display: inline-flex;
-
   color: var(--fourth-text-color);
   background-color: var(--footer-background-color);
 
   line-height: 1.25;
   width: 355px;
   height: 50px;
+  padding: 15px 16px;
   margin-right: 10px;
 
   border: 1px solid var(--border-input-color);
   border-radius: 4px;
 }
 .footer-block button {
+  display: inline-flex;
   box-sizing: border-box;
   padding: 10px 28px;
 }
