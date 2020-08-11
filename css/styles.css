@@ -333,6 +333,39 @@ main {
   font-size: 14px;
   line-height: 1.71;
 }
+.checkbox label {
+  display: inline-flex;
+  align-items: center;
+}
+.checkbox input {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.castom-check {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 2px;
+  transition: background-color var(--time-tranforming) var(--form-transforming);
+}
+.checkbox input:checked ~ .castom-check {
+  background-color: var(--accent-text-color);
+  background-image: url(../images/symbol-defs-1.svg);
+  background-origin: border-box;
+  background-size: contain;
+  border-color: transparent;
+}
 .checkbox a {
   color: var(--accent-text-color);
   text-decoration-line: underline;
@@ -364,16 +397,12 @@ main {
   padding: 94px calc((100% - 1200px) / 2);
 }
 .feature-primary-title {
-  margin-top: 0px;
-  margin-bottom: 0px;
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
-  border: 0;
   padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
+  border: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -475,16 +504,12 @@ main {
   margin-bottom: 10px;
 }
 .team-card > h4 {
-  margin-top: 0px;
-  margin-bottom: 0px;
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
-  border: 0;
   padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
+  border: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -565,7 +590,14 @@ main {
   justify-content: space-between;
 }
 .footer-block > h2 {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .footer-block > a.logo {
   display: inline-block;

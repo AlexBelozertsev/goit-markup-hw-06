@@ -92,7 +92,7 @@
               <ul>
                 <li class="form-elements">
                   <label for="user-name">Имя</label>
-                  <input type="text" name="name" id="user-name" />
+                  <input type="text" name="user-name" id="user-name" />
                   <div class="icon-form-elements">
                     <svg width="12" height="12">
                       <use href="./images/symbol-defs.svg#icon-person"></use>
@@ -129,11 +129,16 @@
               </ul>
 
               <div class="checkbox">
-                <input type="checkbox" name="checkbox" id="" />
-                <span>
+                <label>
+                  <input type="checkbox" name="checkbox" />
+                  <span class="castom-check">
+                    <!-- <svg width="16" height="15">
+                      <use href=""></use>
+                    </svg> -->
+                  </span>
                   Соглашаюсь с рассылкой и принимаю
                   <a href="">Условия договора</a>
-                </span>
+                </label>
               </div>
               <button type="submit" class="button">Отправить</button>
               <div class="close" data-close-modal>
