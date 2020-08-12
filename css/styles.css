@@ -59,6 +59,7 @@
   --border-input-color: rgba(255, 255, 255, 0.3);
   --border-modal-color: rgba(33, 33, 33, 0.2);
   --border-div-close: rgba(0, 0, 0, 0.1);
+  --border-portfolio-card: #eeeeee;
 
   --time-tranforming: 250ms;
   --form-transforming: cubic-bezier(0.4, 0, 0.2, 1);
@@ -122,6 +123,7 @@ a {
 .container.main {
   display: flex;
   align-items: center;
+  height: 80px;
   border-bottom: 1px solid var(--border-header-color);
 }
 
@@ -773,6 +775,8 @@ main {
   display: block;
 }
 .card-title {
+  border: 1px solid var(--border-portfolio-card);
+  border-top: none;
   padding: 20px 24px;
 }
 .portfolio-title {
